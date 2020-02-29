@@ -30,7 +30,6 @@ do
 done
 
 # The next block helps you find the sas job IDs in the submission info. 
-# -F is to be followed by the pattern wanted. print2$ asks for the 2nd column. tr replaces a with b
 # The array all_jobs searches $File.txt for pattern and get them into this array. 
 
 all_jobs=($(awk -F "Job ID:" '{print$2}' $File.txt | tr -s '\n' ' '))

@@ -17,5 +17,4 @@ for i in "${all_jobs[@]}"
       echo -e "***---------------------------------***\n\n" 
    done
 
-# Job id must be string. The format in printf is to remove unwanted newline, space, tab. - left adjust the string. 
 # .6 describes the precision. Suppose 6 is enough to capture the id string. Can change it to larger numbers. 
