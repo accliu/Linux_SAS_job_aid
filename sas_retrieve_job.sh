@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This shell script is to retrieve finished jobs meanwhile to check status to confirm completion. 
+# It uses the submission info to retrieve job list, log, info from the default work directory in server. 
+# And, it moves the file from that directory to a user defined new folder under current directory. 
+
 read -p "Please enter a folder name which will contain your job info:  " your_dir
 
 if [ -d "your_dir" ]; then 
@@ -7,7 +11,7 @@ if [ -d "your_dir" ]; then
    if [ $user_ans = y ]; then
       rm -r $your_dir; mkdir $your_dir
    else
-      read -p 'Please enter a different name for the folder to contain job info:  ' $your_dir
+      read -p 'Please enter a different name for the folder to contain job info:  ' your_dir
       mkdir $your_dir
    fi
 else

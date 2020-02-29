@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Use this script to kill a grid job
+# Use this script to kill the grid job contained in the submission info
 
 read -p "Please enter the txt file name which contains submission info:  " File
 
