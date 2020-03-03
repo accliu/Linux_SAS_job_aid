@@ -18,3 +18,4 @@ for i in "${all_jobs[@]}"
    done
 
 # .6 describes the precision. Suppose 6 is enough to capture the id string. Can change it to larger numbers. 
+# or bjobs will also do when other jobs than the jobs of interest are not of concern.

@@ -2,7 +2,7 @@
 
 # Use this script to kill the grid job contained in the submission info
 
-read -p "Please enter the txt file name which contains submission info:  " File
+read -p "Please enter the name of the txt file which contains submission info:  " File
 
 all_jobs=($(awk -F "Job ID:" '{print$2}' $File.txt | tr -s '\n' ' '))
 
