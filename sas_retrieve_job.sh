@@ -22,19 +22,19 @@ read -p "Please enter the name of the txt file which contains your job submissio
 
 read -p "Please enter a name for the txt file which will contain the SAS job return code: " return_file
 
-if [ -f "$return_file.txt" ]; then
+if [ -f "${return_file}.txt" ]; then
    read -p "The file $return_file.txt already exists. Do you want to replace the existing file (y/n)? " user_ans
    if [ $user_ans=y ]; then
       rm $return_file.txt; touch "$return_file".txt
-#both variable value extraction methods would work.
+#both variable value extraction methods would also work.
    else
       read -p 'Please enter a different name for the file which will contain job return code: ' return_file
    fi
 else
-   touch $return_file.txt
+   touch ${return_file}.txt
 fi
 
-all_jobs=($(awk -F "Job ID:" '{print$2}' $File.txt | tr -s '\n' ' '))
+all_jobs=($(awk -F "Job ID:" '{print$2}' ${File}.txt | tr -s '\n' ' '))
 
 for i in "${all_jobs[@]}"
    do
@@ -56,6 +56,6 @@ for dir in */
       printout=$( printf 'Job info output to folder:    %s\n' "$dir";
         ( cd "$dir" && echo -e "    \nThe job return code is: " $(awk -F "Return code:" '{print$2}' job.info | tr -s '\n' ' ') )
       )
-      echo -e $printout > ../$return_file.txt 
+      echo -e $printout > ../${return_file}.txt 
       echo -e $printout
    done

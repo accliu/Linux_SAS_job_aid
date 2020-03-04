@@ -10,29 +10,29 @@
 
 read -p 'Please enter a name for the txt file which will contain submission info: ' File
 
-if test -f $File.txt; then
+if test -f ${File}.txt; then
    read -p "$File.txt already exists. Do you want to replace the existing file (y/n)?  " user_ans
    if [ $usesr_ans=y ]; then
-      rm $File.txt; touch $File.txt
+      rm ${File}.txt; touch ${File}.txt
    else
       read -p 'Please enter a different name for the txt file to contain submission info: ' File
-      touch $File.txt
+      touch ${File}.txt
    fi
 else
-   touch $File.txt
+   touch ${File}.txt
 fi
 
 echo -e "\nYou have submitted: $* \n"
 
 for i in $@
 do 
-   sasgsub -gridsubmitpgm $i.sas >> $File.txt
+   sasgsub -gridsubmitpgm ${i}.sas >> ${File}.txt
 done
 
 # The next block helps you find the sas job IDs in the submission info. 
 # The array all_jobs searches $File.txt for pattern and get them into this array. 
 
-all_jobs=($(awk -F "Job ID:" '{print$2}' $File.txt | tr -s '\n' ' '))
+all_jobs=($(awk -F "Job ID:" '{print$2}' ${File}.txt | tr -s '\n' ' '))
 
 # Check whether the array is empty. 
 

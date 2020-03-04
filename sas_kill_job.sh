@@ -4,7 +4,7 @@
 
 read -p "Please enter the name of the txt file which contains submission info:  " File
 
-all_jobs=($(awk -F "Job ID:" '{print$2}' $File.txt | tr -s '\n' ' '))
+all_jobs=($(awk -F "Job ID:" '{print$2}' ${File}.txt | tr -s '\n' ' '))
 
 for i in "${all_jobs[@]}"
    do

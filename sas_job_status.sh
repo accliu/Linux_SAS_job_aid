@@ -6,7 +6,7 @@ read -p "Please enter the name of the txt file that contains the job submission 
 
 echo -e "\nThe following is the job status info you want:\n"
 
-all_jobs=($(awk -F "Job ID:" '{print$2}' $File.txt | tr -s '\n' ' '))
+all_jobs=($(awk -F "Job ID:" '{print$2}' ${File}.txt | tr -s '\n' ' '))
 
 for i in "${all_jobs[@]}" 
    do 
