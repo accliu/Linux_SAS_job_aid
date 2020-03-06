@@ -56,6 +56,6 @@ for dir in */
       printout=$( printf 'Job info output to folder:    %s\n' "$dir";
         ( cd "$dir" && echo -e "    \nThe job return code is: " $(awk -F "Return code:" '{print$2}' job.info | tr -s '\n' ' ') )
       )
-      echo -e $printout > ../${return_file}.txt 
+      echo -e $printout >> ../${return_file}.txt 
       echo -e $printout
    done
