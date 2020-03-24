@@ -3,6 +3,7 @@
 # This shell script is used to submit a sas program located in the current directory on grid server.
 # It produces a txt file to contain the submission info for later use. 
 # To invoke it, use: ./sas_submit_jog.sh your_sas_code1 your_sas_code2 (no .sas plealse)
+# To submit all sas codes in the folder: ./sas_submit_jog.sh `ls *.sas | sed -e 's/\.sas$//g'`
 # Suppose 'sasgsub' is already present under one of your current environment's search paths
 # Otherwise, use something like: /sas/software/.../SASGridManagerClientUtility/9.4/sasgsub
 # Suppose you want to save submission info to grid_submit_info.txt. And, this becomes handy when small jobs are in question.
