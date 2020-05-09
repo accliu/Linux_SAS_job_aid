@@ -12,4 +12,5 @@ Use sas_retrieve_job.sh to retrieve finished sas jobs;
 
 Use the other two anytime to check sas job status or terminate sas jobs.
 
-
+# data_filter_shell_git.sh
+The shell script is used to reduce file size by column selection and record filtering. The dilimited files can first be reduced in size in Unix and then imported to statiscital softwares.
