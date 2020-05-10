@@ -5,7 +5,7 @@
 # datasets into statistical softwares like R, Python, or SAS. Shell parses and filters the text file and thus
 # results in a smaller dataset before the statistical softwares take the job over. The statistical softwares then
 # can parse and format a smaller dataset. Also note Shell can do more than basic filtering.
-# Can be invoked by Python, for example, to run. 
+# With modification, can be invoked by Python, for example, to run. 
 
 # The script takes in a parent dataset (as positional argument) to perform filtering
 # Use as ./data_filter_by_unix.sh nba.txt
@@ -42,6 +42,8 @@ else
    touch ${File}
 fi
 
+start_time=$(($(date +%s%N)/1000000))
+
 ## Select needed columns and filter the data by conditions
 ## Save subset to a txt/csv file
 cut -d '|' -f $(printf ",%s" "${position[@]}" | sed 's/,//') $1 | awk -F "|"  'NR==1 || (($5 ~ /Lakers/ || /Kings/ || /Jazz/ || /Heat/ || /Clippers/) && $2==0)' > $File
@@ -50,3 +52,9 @@ cut -d '|' -f $(printf ",%s" "${position[@]}" | sed 's/,//') $1 | awk -F "|"  'N
 
 echo Check observation counts:
 wc -l $File
+
+echo -e "\n"
+
+## End time
+end_time=$(($(date +%s%N)/1000000)) 
+echo "The program takes" $((end_time-start_time)) "milliseconds to run."
